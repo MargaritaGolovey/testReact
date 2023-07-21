@@ -1,22 +1,31 @@
 // import { useState } from "react";
 // import { render } from '@testing-library/react';
-import './school-item.css'
+import { useState } from "react";
+import "./school-item.css";
 
+const SchoolItem = ({ rooms }) => {
+  const [btn, setBtn] = useState(false);
 
+  return (
+    <>
+      {rooms.map((el, id) => {
+        return (
+          <div key={id}>
+            {id < 5 ? <div className={btn? "flex": "blue"}>{el}</div> : null}
+            {id >= 5 && btn ? <div className={btn? "flex": "blue"}>{el}</div> : null}
+          </div>
+        );
+      })}
 
-const classNumber = ['1-a', '1-б', '1-в' ,'1-г', '2-a', '2-б', '1-в'];
-
-
-
-const SchoolItem = ()=>{
-  classNumber.map(item=>{
-    return(      
-      <li>{item}</li>
-    )
-  });
-}
-
-
-
+      <button
+        onClick={() => {
+          setBtn((value) => !value);
+        }}
+      >
+        open
+      </button>
+    </>
+  );
+};
 
 export default SchoolItem;
