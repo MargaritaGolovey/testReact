@@ -3,29 +3,39 @@
 import { useState } from "react";
 import "./school-item.css";
 
+/* 
+
+2 конпки
+Опен=>Клосе 
+ фолс фолс фолс
+ тру  тру
+ фолс
+*/
 const SchoolItem = ({ rooms }) => {
-  const [btn, setBtn] = useState(false);
+  const [open, setOpen] = useState({
+    button11: false,
+    button22: false,
+    button33: false,
+  });
 
-  return (
-    <>
-      {rooms.map((el, id) => {
-        return (
-          <div key={id}>
-            {id < 5 ? <div className={btn? "flex": "blue"}>{el}</div> : null}
-            {id >= 5 && btn ? <div className={btn? "flex": "blue"}>{el}</div> : null}
-          </div>
-        );
-      })}
+  const toggleState = (property) => {
+    setOpen({ ...open, [property]: !open[property] });
+  };
+  console.log(open);
 
-      <button
-        onClick={() => {
-          setBtn((value) => !value);
-        }}
-      >
-        open
-      </button>
-    </>
-  );
+  const buttons = Object.keys(open).map((item, index) => {
+    return (
+      <div key={index}>
+        <button
+          onClick={() => {
+            toggleState(item);
+          }}
+        ></button>
+      </div>
+    );
+  });
+
+  return <>{buttons}</>;
 };
 
 export default SchoolItem;
