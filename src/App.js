@@ -1,32 +1,18 @@
-import SchoolItem from "./components/school/school-item";
-
-const classNumber1 = ["1-5", "1-f", "1-в", "1-г", "2-a", "2-б", "1-в"];
+import Header from "./components/header/header";
+import School from "./components/school/school";
+import TodoList from "./components/todo-list/todo-list";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
-  const randomArray = () => {
-    const newArray = [];
-    classNumber1.forEach((el, id) => {
-      newArray.push(
-        classNumber1[Math.floor(Math.random() * classNumber1.length)]
-      );
-    });
-    return newArray;
-  };
-  console.log(randomArray());
-  const schools = [randomArray(), randomArray(), randomArray()];
-
   return (
     <div className="App">
-      {
-        /*   <SchoolItem /> */
-        schools.map((item, index) => {
-          return (
-            <div className="scholl-section" key={index}>
-              <SchoolItem rooms={item} />
-            </div>
-          );
-        })
-      }
+      <Router>
+        <Header />
+        <Routes>
+          <Route exact path="/" element={<School />} />
+          <Route exact path="/todoList" element={<TodoList />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
