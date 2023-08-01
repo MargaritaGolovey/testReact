@@ -13,11 +13,7 @@ function App() {
     return newArray;
   };
   console.log(randomArray());
-  const schools = [
-    randomArray(),
-    randomArray(),
-    randomArray() /* classNumber2, classNumber3 */,
-  ];
+  const schools = [randomArray(), randomArray(), randomArray()];
 
   return (
     <div className="App">
