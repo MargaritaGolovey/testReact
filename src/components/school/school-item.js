@@ -1,16 +1,8 @@
-// import { useState } from "react";
-// import { render } from '@testing-library/react';
+
+
 import { useState } from "react";
 import "./school-item.css";
 
-/* 
-
-2 конпки
-Опен=>Клосе 
- фолс фолс фолс
- тру  тру
- фолс
-*/
 const SchoolItem = ({ rooms }) => {
   const [open, setOpen] = useState({
     button11: false,
@@ -19,9 +11,13 @@ const SchoolItem = ({ rooms }) => {
   });
 
   const toggleState = (property) => {
-    setOpen({ ...open, [property]: !open[property] });
+    let openKey = Object?.entries(open)?.find((el) => el[1]);
+    setOpen({
+      ...open,
+      ...(openKey && { [openKey[0]]: false }),
+      [property]: !open[property],
+    });
   };
-  console.log(open);
 
   const buttons = Object.keys(open).map((item, index) => {
     return (
@@ -30,7 +26,9 @@ const SchoolItem = ({ rooms }) => {
           onClick={() => {
             toggleState(item);
           }}
-        ></button>
+        >
+          {open[item] ? "Open" : "Close"}
+        </button>
       </div>
     );
   });
