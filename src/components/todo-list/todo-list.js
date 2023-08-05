@@ -17,7 +17,7 @@ const TodoList = () => {
   };
   const [elem, delElem]=useState(); 
 
-const delateElem=(el)=>{
+const deleteElem=(el)=>{
   console.log(todoListData);
   delElem(todoListData.map((item, index) => item.id == el ? todoListData.splice(index,index+1): null ));
   
@@ -32,7 +32,7 @@ const delateElem=(el)=>{
             <div style={{border:"1px solid black", marginBottom:"20px", width: "150px", textAlign:"center", padding:"10px"}}>
               <h1>{item.id}</h1>
               <p>{item.action}</p>
-              <button id={item.id} onClick={(e)=>delateElem(e.target.id)}>Delate</button>
+              <button id={item.id} onClick={(e)=>deleteElem(e.target.id)}>Delate</button>
             </div>
           </React.Fragment>
         );
