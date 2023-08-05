@@ -5,8 +5,8 @@ const TodoItemAdd = ({ todoItemAdd }) => {
 
   return (
     <>
-      <input type="text" onChange={(e) => setValue(e.target.value)} />
-      <button
+      <input style={{width:"164px", gap:"20px", marginTop:"30px", marginBottom:"10px"}} type="text" onChange={(e) => setValue(e.target.value)} />
+      <button style={{width:"172px", gap:"20px"}}
         onClick={() => {
           if (value.trim()) todoItemAdd(value);
         }}
