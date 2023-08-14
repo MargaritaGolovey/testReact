@@ -1,5 +1,3 @@
-
-
 import { useState } from "react";
 import "./school-item.css";
 
@@ -21,15 +19,17 @@ const SchoolItem = ({ rooms }) => {
 
   const buttons = Object.keys(open).map((item, index) => {
     return (
-      <div key={index}>
-        <button
-          onClick={() => {
-            toggleState(item);
-          }}
-        >
-          {open[item] ? "Open" : "Close"}
-        </button>
-      </div>
+      <>
+        <div key={index}>
+          <button
+            onClick={() => {
+              toggleState(item);
+            }}
+          >
+            {open[item] ? "Open" : "Close"}
+          </button>
+        </div>
+      </>
     );
   });
 
