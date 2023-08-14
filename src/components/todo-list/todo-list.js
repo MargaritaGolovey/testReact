@@ -19,12 +19,7 @@ const TodoList = () => {
   };
 
   const todoItemAdd = (action) => {
-//видялаємо перший елемент і бачимо що при створенні в нас не створється елемент з айді 1 а створюється елемент з айді 4
-//виправити
 
-//local Storrage
-//session Storage
-//який формат
 
     const isAvailableId = (element, index, array) => {
       if (array[index]?.id + 1 !== array[index + 1]?.id) return true;
